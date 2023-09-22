@@ -3,6 +3,3 @@
 exec{'pkill -f killmenow':
 path  => '/usr/bin/:/usr/local/bin/:/bin/'
 }
-notify { 'Process killmenow terminated':
-  subscribe => Exec['killmenow_process'],
-}
