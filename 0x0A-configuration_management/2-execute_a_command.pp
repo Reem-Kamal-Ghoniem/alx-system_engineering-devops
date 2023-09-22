@@ -1,9 +1,7 @@
 # a manifest that kills a process named killmenow.
 
-exec { 'killmenow_process':
-  command     => 'pkill -f killmenow',
-  path        => ['/bin', '/usr/bin'],
-  refreshonly => true,
+exec{'pkill -f killmenow':
+path  => '/usr/bin/:/usr/local/bin/:/bin/'
 }
 notify { 'Process killmenow terminated':
   subscribe => Exec['killmenow_process'],
