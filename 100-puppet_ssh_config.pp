@@ -1,7 +1,10 @@
 #let us normalize using puppet
-file { 'config file':
-  command  => '/usr/bin/echo -e "
-  IdentityFile ~/.ssh/school\n\
-  PasswordAuthentication no\n",
+file_line{'Turn off passwd auth':
+path => '/etc/ssh/ssh_config',
+line => 'PasswordAuthentication no'
 }
 
+file_line{'Declare identity file':
+path => '/etc/ssh/ssh_config',
+line => 'IdentityFile ~/.ssh/school'
+}
