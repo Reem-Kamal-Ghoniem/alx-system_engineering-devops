@@ -7,5 +7,5 @@ echo "Hello World!" > /var/www/html/index.nginx-debian.html
 sed -i 's/server_name _;/&\n	location \/redirect_me {\n	    return 301 https:\/\/www.youtube.com\/watch?v=dBmxNsS3BGE;\n	}/' /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 sed -i 's/server_name _;/&\n    error_page 404 \/404.html;/' /etc/nginx/sites-available/default
-sed -i 's/server_name _;/&\n	add_header X-Served-By $(hostname);/' /etc/nginx/sites-available/default
+sed -i "s/server_name _;/&\n	add_header X-Served-By $(hostname);/" /etc/nginx/sites-available/default
 service nginx start
