@@ -36,7 +36,7 @@ defaults
 	
 frontend http80
         bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/domain.pem
+        bind *:443 ssl crt /etc/haproxy/certs/DOMAIN.pem
         redirect scheme https if !{ ssl_fc }
         mode http
         default_backend balancing
